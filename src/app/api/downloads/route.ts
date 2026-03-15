@@ -1,11 +1,17 @@
 import { NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 
-const prisma = new PrismaClient({
-  datasourceUrl: "file:./dev.db"
+import { PrismaLibSql } from "@prisma/adapter-libsql";
+import { createClient } from "@libsql/client";
+import { PrismaClient } from "@prisma/client";
+
+const libsql = createClient({
+  url: "file:./dev.db",
 });
+// @ts-ignore
+const adapter = new PrismaLibSql(libsql);
+const prisma = new PrismaClient({ adapter });
 
 export async function POST(req: Request) {
   try {
