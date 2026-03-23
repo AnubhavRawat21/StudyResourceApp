@@ -2,16 +2,9 @@ import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcrypt";
 
-import { PrismaLibSql } from "@prisma/adapter-libsql";
-import { createClient } from "@libsql/client";
 import { PrismaClient } from "@prisma/client";
 
-const libsql = createClient({
-  url: "file:./dev.db",
-});
-// @ts-ignore
-const adapter = new PrismaLibSql(libsql);
-const prisma = new PrismaClient({ adapter });
+const prisma = new PrismaClient();
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -60,7 +53,6 @@ export const authOptions: NextAuthOptions = {
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
-        // @ts-ignore
         token.role = user.role;
         token.id = user.id;
       }
@@ -68,9 +60,7 @@ export const authOptions: NextAuthOptions = {
     },
     async session({ session, token }) {
       if (session.user) {
-        // @ts-ignore
         session.user.role = token.role;
-        // @ts-ignore
         session.user.id = token.id;
       }
       return session;

@@ -2,16 +2,9 @@ import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 
-import { PrismaLibSql } from "@prisma/adapter-libsql";
-import { createClient } from "@libsql/client";
 import { PrismaClient } from "@prisma/client";
 
-const libsql = createClient({
-  url: "file:./dev.db",
-});
-// @ts-ignore
-const adapter = new PrismaLibSql(libsql);
-const prisma = new PrismaClient({ adapter });
+const prisma = new PrismaClient();
 
 export async function POST(req: Request) {
   try {
@@ -28,7 +21,6 @@ export async function POST(req: Request) {
     const download = await prisma.download.create({
       data: {
         resourceId,
-        // @ts-ignore
         userId: session.user.id,
       },
     });
@@ -49,7 +41,6 @@ export async function GET(req: Request) {
 
     const history = await prisma.download.findMany({
       where: {
-        // @ts-ignore
         userId: session.user.id,
       },
       include: {
