@@ -63,12 +63,20 @@ export default function DashboardPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <h1 className="text-2xl font-bold text-gray-900">Study Resources</h1>
-        <Link
-          href="/dashboard/history"
-          className="text-sm font-medium text-[#1A5276] hover:text-[#143d59] bg-blue-50 hover:bg-blue-100 px-4 py-2 rounded-md transition-colors"
-        >
-          View Download History
-        </Link>
+        <div className="flex items-center gap-3">
+          <Link
+            href="/dashboard/queries"
+            className="text-sm font-medium text-[#1A5276] hover:text-[#143d59] bg-blue-50 hover:bg-blue-100 px-4 py-2 rounded-md transition-colors"
+          >
+            Request Resource
+          </Link>
+          <Link
+            href="/dashboard/history"
+            className="text-sm font-medium text-gray-700 hover:text-gray-900 bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-md transition-colors"
+          >
+            History
+          </Link>
+        </div>
       </div>
 
       {/* Search and Filter */}
@@ -82,7 +90,7 @@ export default function DashboardPage() {
             placeholder="Search by keyword..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:border-[#1A5276] focus:ring-1 focus:ring-[#1A5276] sm:text-sm"
+            className="block w-full text-black pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:border-[#1A5276] focus:ring-1 focus:ring-[#1A5276] sm:text-sm"
           />
         </div>
         <div className="relative w-full sm:w-64">
@@ -92,7 +100,7 @@ export default function DashboardPage() {
           <select
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
-            className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white focus:outline-none focus:border-[#1A5276] focus:ring-1 focus:ring-[#1A5276] sm:text-sm"
+            className="block w-full text-black pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white focus:outline-none focus:border-[#1A5276] focus:ring-1 focus:ring-[#1A5276] sm:text-sm"
           >
             <option value="">All Subjects</option>
             {categories.map((cat) => (

@@ -15,6 +15,7 @@ model User {
   role            String     @default("STUDENT") // Can be "STUDENT" or "ADMIN"
   resources       Resource[] // Resources uploaded by this user (Admins)
   downloads       Download[]
+  resourceQueries ResourceQuery[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -59,3 +60,17 @@ model Download {
   resource   Resource @relation(fields: [resourceId], references: [id])
   resourceId String
 }
+
+model ResourceQuery {
+  id          String   @id @default(cuid())
+  subject     String
+  description String
+  status      String   @default("PENDING") // PENDING, RESOLVED
+  
+  user        User     @relation(fields: [userId], references: [id])
+  userId      String
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+

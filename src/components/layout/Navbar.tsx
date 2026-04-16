@@ -31,6 +31,14 @@ export default function Navbar() {
                 >
                   Dashboard
                 </Link>
+                {role === "STUDENT" && (
+                  <Link
+                    href="/dashboard/queries"
+                    className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                  >
+                    My Requests
+                  </Link>
+                )}
                 {role === "ADMIN" && (
                   <Link
                     href="/admin/resources"
@@ -45,6 +53,14 @@ export default function Navbar() {
                     className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
                   >
                     Categories
+                  </Link>
+                )}
+                {role === "ADMIN" && (
+                  <Link
+                    href="/admin/queries"
+                    className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                  >
+                    Student Queries
                   </Link>
                 )}
               </div>
@@ -103,6 +119,14 @@ export default function Navbar() {
                 >
                   Dashboard
                 </Link>
+                {role === "STUDENT" && (
+                  <Link
+                    href="/dashboard/queries"
+                    className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+                  >
+                    My Requests
+                  </Link>
+                )}
                 {role === "ADMIN" && (
                   <Link
                     href="/admin/resources"
@@ -117,6 +141,14 @@ export default function Navbar() {
                     className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
                   >
                     Categories
+                  </Link>
+                )}
+                {role === "ADMIN" && (
+                  <Link
+                    href="/admin/queries"
+                    className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+                  >
+                    Student Queries
                   </Link>
                 )}
               </>
