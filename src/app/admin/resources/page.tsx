@@ -125,7 +125,7 @@ export default function ManageResourcesPage() {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 required
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#1A5276] focus:border-[#1A5276] sm:text-sm"
+                className="mt-1 flex block w-full text-black border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#1A5276] focus:border-[#1A5276] sm:text-sm"
               />
             </div>
             <div>
@@ -134,7 +134,7 @@ export default function ManageResourcesPage() {
                 value={categoryId}
                 onChange={(e) => setCategoryId(e.target.value)}
                 required
-                className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-[#1A5276] focus:border-[#1A5276] sm:text-sm rounded-md"
+                className="mt-1 block w-full text-black pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-[#1A5276] focus:border-[#1A5276] sm:text-sm rounded-md"
               >
                 <option value="" disabled>Select a subject</option>
                 {categories.map((cat) => (
@@ -152,7 +152,7 @@ export default function ManageResourcesPage() {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               rows={3}
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#1A5276] focus:border-[#1A5276] sm:text-sm"
+              className="mt-1 block w-full text-black border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-[#1A5276] focus:border-[#1A5276] sm:text-sm"
             />
           </div>
 

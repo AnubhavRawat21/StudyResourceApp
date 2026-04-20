@@ -84,7 +84,7 @@ export default function ManageCategoriesPage() {
             value={newCategory}
             onChange={(e) => setNewCategory(e.target.value)}
             placeholder="e.g., Mathematics, Computer Science"
-            className="flex-1 appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-[#1A5276] focus:border-[#1A5276] sm:text-sm"
+            className="flex-1 text-black appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-[#1A5276] focus:border-[#1A5276] sm:text-sm"
             required
           />
           <button

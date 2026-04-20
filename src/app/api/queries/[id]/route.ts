@@ -7,7 +7,7 @@ const prisma = new PrismaClient();
 
 export async function PATCH(
   req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const session = await getServerSession(authOptions);
@@ -24,9 +24,12 @@ export async function PATCH(
       return new NextResponse("Status is required", { status: 400 });
     }
 
+    // Await params for nextjs dynamic routing
+    const { id } = await Promise.resolve(params);
+
     const query = await prisma.resourceQuery.update({
       where: {
-        id: params.id,
+        id,
       },
       data: {
         status,
